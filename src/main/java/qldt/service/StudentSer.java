@@ -12,13 +12,18 @@ public class StudentSer {
     
     @Autowired
     private StudentRepo studentRepo;
+    
+    @Autowired
+    private AppUserRepo appUserRepo;
 
     public Student addStudent(Student student){
         return studentRepo.save(student);
     }
 
     public List<Student> getStudent(){
+    	studentRepo.findbyApp
         return studentRepo.findAll();
+        
     }
 
     public Student getStdByID(long ID){

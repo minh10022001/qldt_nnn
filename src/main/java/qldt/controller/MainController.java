@@ -2,6 +2,9 @@ package qldt.controller;
 
 import java.security.Principal;
 
+import qldt.AppUser;
+import qldt.data.StudentRepo;
+import qldt.service.AppUserSer;
 import qldt.uitls.WebUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
@@ -12,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
-
+	
 	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
 	public String welcomePage(Model model) {
 		model.addAttribute("title", "Welcome");
@@ -75,7 +78,7 @@ public class MainController {
 
 		String userInfo = WebUtils.toString(loginedUser);
 		model.addAttribute("userInfo", userInfo);
-
+		
 		return "userInfoPage";
 	}
 
